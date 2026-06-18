@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Swathi Bakers — Freshly Baked Happiness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+#hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1A0F07}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=1600&q=80') center/cover;filter:brightness(0.3) saturate(0.75);transform:scale(1.08);will-change:transform}
+.hero-noise{position:absolute;inset:0;opacity:.3;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E")}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,rgba(26,15,7,.7) 100%)}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent,#1A0F07 80%,#FDF8F0)}
+canvas#particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 1.5rem;max-width:920px}
+.hero-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#C9963A;margin-bottom:1.4rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:1;max-width:55px;height:1px;background:#C9963A;opacity:.4}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,9vw,7.5rem);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-.025em;margin-bottom:1.4rem}
+.hero-title em{font-style:italic;color:#F0D4A0;display:block}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.45rem);font-weight:300;color:rgba(255,255,255,.72);max-width:540px;margin:0 auto 2.8rem;line-height:1.75}
+.hero-actions{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.35);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;animation:fadeIn 1s 1.8s both}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,#C9963A,transparent);animation:scrollPulse 2s infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html"><span>Swathi</span> Bakers</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="nav-cta" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello%20Swathi%20Bakers!" target="_blank">Order Now ↗</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO — bakery shop / baked goods wide shot -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-bottom"></div>
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow hero-anim-1">Artisan Bakery · Telangana · Est. 2018</div>
+    <h1 class="hero-title hero-anim-2">Freshly Baked<em>Happiness</em></h1>
+    <p class="hero-sub hero-anim-3">Warm breads, layered pastries and celebration cakes — crafted by hand before dawn, delivered with love.</p>
+    <div class="hero-actions hero-anim-4">
+      <a class="btn btn-gold" href="menu.html">Explore Menu →</a>
+      <a class="btn btn-white" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!%20I%27d%20like%20to%20order." target="_blank">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Order on WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- FEATURES -->
+<div class="feature-strip">
+  <div class="feature-strip-inner">
+    <div class="feature-item reveal"><div class="feature-icon">🌅</div><div><h4>Baked at Dawn</h4><p>Fresh every morning, always</p></div></div>
+    <div class="feature-item reveal d1"><div class="feature-icon">🌿</div><div><h4>Natural Ingredients</h4><p>No preservatives, ever</p></div></div>
+    <div class="feature-item reveal d2"><div class="feature-icon">🎂</div><div><h4>Custom Cakes</h4><p>Any occasion, any design</p></div></div>
+    <div class="feature-item reveal d3"><div class="feature-icon">🚀</div><div><h4>Fast Delivery</h4><p>Same-day in Telangana</p></div></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num" data-count="500" data-suffix="+">0</div><div class="stat-label">Customers Daily</div></div>
+  <div class="stat-item"><div class="stat-num" data-count="35" data-suffix="+">0</div><div class="stat-label">Menu Varieties</div></div>
+  <div class="stat-item"><div class="stat-num" data-count="6" data-suffix="+">0</div><div class="stat-label">Years of Craft</div></div>
+  <div class="stat-item"><div class="stat-num" data-count="4" data-suffix=".9★">0</div><div class="stat-label">Google Rating</div></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip"><div class="marquee-track">
+  <div class="marquee-item">Belgian Truffle Dream<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Strawberry Cloud Cake<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Custom Birthday Cakes<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Belgian Truffle Dream<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Strawberry Cloud Cake<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Custom Birthday Cakes<div class="marquee-dot"></div></div>
+  <div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div>
+</div></div>
+
+<!-- MENU HIGHLIGHTS — all images match context -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem" class="reveal">
+      <div><div class="section-eyebrow">Fresh Today</div><h2 class="section-title">Menu <em>Highlights</em></h2></div>
+      <a href="menu.html" class="btn btn-outline-gold">Full Menu →</a>
+    </div>
+    <div class="grid-3" style="margin-bottom:1.5rem">
+      <!-- Belgian Truffle — dark chocolate cake -->
+      <div class="menu-img-card reveal d1"><span class="menu-img-badge">Bestseller</span>
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Belgian Truffle Cake"/>
+        <div class="menu-img-overlay"></div><div class="menu-img-label"><h3>Belgian Truffle Dream</h3><p>Dark chocolate ganache, moist sponge</p><div class="price">₹450/slice · ₹3,500 whole</div></div></div>
+      <!-- Butter Croissant — actual croissant image -->
+      <div class="menu-img-card reveal d2">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Butter Croissant"/>
+        <div class="menu-img-overlay"></div><div class="menu-img-label"><h3>Classic Butter Croissant</h3><p>All-butter, flaky, golden</p><div class="price">₹80 each</div></div></div>
+      <!-- Strawberry Cloud Cake — pink/strawberry cake -->
+      <div class="menu-img-card reveal d3"><span class="menu-img-badge">Chef's Pick</span>
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80" alt="Strawberry Cloud Cake"/>
+        <div class="menu-img-overlay"></div><div class="menu-img-label"><h3>Strawberry Cloud Cake</h3><p>Vanilla chiffon, fresh strawberries</p><div class="price">₹400/slice · ₹3,200 whole</div></div></div>
+    </div>
+    <div class="grid-3">
+      <!-- Sourdough — rustic bread loaf -->
+      <div class="menu-img-card reveal d1">
+        <img src="https://images.unsplash.com/photo-1585478259715-4d3a4b7bd304?w=600&q=80" alt="Artisan Sourdough"/>
+        <div class="menu-img-overlay"></div><div class="menu-img-label"><h3>Artisan Sourdough</h3><p>72hr ferment, crisp crust</p><div class="price">₹220 / loaf</div></div></div>
+      <!-- Glazed Donuts — actual donuts -->
+      <div class="menu-img-card reveal d2"><span class="menu-img-badge">New</span>
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80" alt="Glazed Donuts"/>
+        <div class="menu-img-overlay"></div><div class="menu-img-label"><h3>Glazed Donuts</h3><p>Classic & exotic flavours, daily</p><div class="price">₹60 each · ₹320 half-dozen</div></div></div>
+      <!-- Choco Chip Cookies — cookies -->
+      <div class="menu-img-card reveal d3">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" alt="Choco Chip Cookies"/>
+        <div class="menu-img-overlay"></div><div class="menu-img-label"><h3>Choco Chip Cookies</h3><p>Chunky, crispy edges, soft centre</p><div class="price">₹35 each · ₹180 pack of 6</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARALLAX QUOTE — bakery oven / baking scene -->
+<div class="parallax-quote">
+  <div class="parallax-quote-bg" style="background-image:url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1600&q=80')"></div>
+  <div class="parallax-quote-overlay"></div>
+  <div class="parallax-quote-content reveal">
+    <blockquote>"Baking is love made edible. Every morning we rise before the sun so you wake up to something beautiful."</blockquote>
+    <cite>— Swathi, Head Baker &amp; Founder</cite>
+  </div>
+</div>
+
+<!-- STORY — dark section -->
+<section class="section" id="story" style="background:var(--espresso)">
+  <div class="container grid-2" style="gap:4rem">
+    <div class="story-imgs reveal-left">
+      <!-- Baker at work — female baker decorating cake -->
+      <div class="story-main"><img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80" alt="Baker at work"/></div>
+      <!-- Fresh pastries on counter -->
+      <div class="story-secondary"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Fresh pastries"/></div>
+      <div class="story-badge"><b>6+</b><small>Years of<br/>Craft</small></div>
+    </div>
+    <div class="reveal-right">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 class="section-title section-title--white" style="margin-bottom:1.2rem">A Festival of <em>Flavors</em></h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:1.5rem">Started in 2018 from a small kitchen in Telangana, Swathi Bakers was born from one woman's dream to share the warmth of handcrafted baking with her community. Today we serve 500+ customers daily — but every single item is still made with the same care and love as the very first loaf.</p>
+      <ul class="check-list">
+        <li style="color:rgba(255,255,255,.75);border-bottom-color:rgba(255,255,255,.07)">Baked fresh every morning before 6 AM</li>
+        <li style="color:rgba(255,255,255,.75);border-bottom-color:rgba(255,255,255,.07)">100% natural ingredients, zero preservatives</li>
+        <li style="color:rgba(255,255,255,.75);border-bottom-color:rgba(255,255,255,.07)">Custom cakes designed for every occasion</li>
+        <li style="color:rgba(255,255,255,.75);border-bottom-color:rgba(255,255,255,.07)">Sourced from trusted local farmers in Telangana</li>
+      </ul>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="about.html" class="btn btn-gold">Our Full Story</a>
+        <a href="order.html" class="btn btn-white">Order Custom Cake</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
+      <div class="section-eyebrow">How We Bake</div>
+      <h2 class="section-title">From <em>Oven to You</em></h2>
+    </div>
+    <div class="grid-4">
+      <div class="process-step reveal d1"><div class="process-num">01</div><div class="process-icon">🌾</div><h3>Source</h3><p>Premium flour, farm-fresh eggs, natural butter sourced locally every day.</p></div>
+      <div class="process-step reveal d2"><div class="process-num">02</div><div class="process-icon">🫙</div><h3>Prepare</h3><p>Doughs hand-prepared the night before, slow-fermented for depth of flavour.</p></div>
+      <div class="process-step reveal d3"><div class="process-num">03</div><div class="process-icon">🔥</div><h3>Bake</h3><p>Stone-deck ovens at dawn. Perfect temperature, perfect timing, every morning.</p></div>
+      <div class="process-step reveal d4"><div class="process-num">04</div><div class="process-icon">🎁</div><h3>Deliver</h3><p>Packaged warm — to your door or ready for pickup by 8 AM.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" style="background:var(--warm-white)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem" class="reveal">
+      <div class="section-eyebrow">Gallery</div>
+      <h2 class="section-title">Made with <em>Love</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <!-- Cake display -->
+      <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80" alt="Cake display"/><div class="gallery-overlay"></div></div>
+      <!-- Assorted pastries on counter -->
+      <div class="gallery-item reveal d1"><img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&q=80" alt="Pastries"/><div class="gallery-overlay"></div></div>
+      <!-- Artisan bread loaves -->
+      <div class="gallery-item reveal d2"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&q=80" alt="Bread loaves"/><div class="gallery-overlay"></div></div>
+      <!-- Donuts -->
+      <div class="gallery-item reveal d1"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80" alt="Donuts"/><div class="gallery-overlay"></div></div>
+      <!-- Cookies -->
+      <div class="gallery-item reveal d2"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" alt="Cookies"/><div class="gallery-overlay"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem" class="reveal">
+      <div class="section-eyebrow">Reviews</div>
+      <h2 class="section-title">What Our Customers <em>Say</em></h2>
+    </div>
+    <div class="grid-3" style="margin-bottom:2.5rem">
+      <div class="testi-card reveal d1"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">Best bakery I've visited! The Belgian Truffle Cake was absolutely divine. Every bite melts in your mouth. Will definitely order again!</p><div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Madhavi Reddy</div><div class="testi-role">Regular Customer · Google Review</div></div></div></div>
+      <div class="testi-card reveal d2"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">I order croissants every Sunday morning. Always perfectly flaky and buttery. The freshness is unmatched — you can taste the quality.</p><div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Ravi Shankar</div><div class="testi-role">Food Blogger · Google Review</div></div></div></div>
+      <div class="testi-card reveal d3"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">Ordered a custom cake for my daughter's birthday. Swathi made it exactly like my reference! The taste was even better than it looked!</p><div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Priya Nair</div><div class="testi-role">Verified Customer · Google Review</div></div></div></div>
+    </div>
+    <div style="text-align:center" class="reveal">
+      <a href="https://www.google.com/maps/place/Swathi+Bakery/@17.1475427,78.2888934,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcbc7f9ea4018f3:0x244b19e37c853988!8m2!3d17.1475427!4d78.2888934!16s%2Fg%2F11g6rkmlkd" target="_blank" class="btn btn-dark">⭐ Review Us on Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div style="position:relative;z-index:1;text-align:center">
+    <h2 class="reveal">Ready to Order?</h2>
+    <p class="reveal d1">Custom cakes, daily breads, bulk orders — just send us a WhatsApp message.</p>
+    <div class="cta-band-actions reveal d2">
+      <a href="https://web.whatsapp.com/send?phone=919704004521&text=Hello%20Swathi%20Bakers!" target="_blank" class="btn btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a href="order.html" class="btn btn-gold">Custom Cake Order Form</a>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE + FOOTER -->
+<div class="marquee-strip"><div class="marquee-track">
+  <div class="marquee-item">Belgian Truffle Dream<div class="marquee-dot"></div></div><div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div><div class="marquee-item">Strawberry Cloud Cake<div class="marquee-dot"></div></div><div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div><div class="marquee-item">Custom Birthday Cakes<div class="marquee-dot"></div></div><div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div><div class="marquee-item">Belgian Truffle Dream<div class="marquee-dot"></div></div><div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div><div class="marquee-item">Strawberry Cloud Cake<div class="marquee-dot"></div></div><div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div><div class="marquee-item">Custom Birthday Cakes<div class="marquee-dot"></div></div><div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div>
+</div></div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="reveal"><span class="footer-logo"><span>Swathi</span> Bakers</span><p class="footer-tagline">Artisan warmth in every bite.<br/>Baked with love, shared with joy since 2018.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://web.whatsapp.com/send?phone=919704004521" target="_blank" class="social-btn" title="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+        <a href="tel:+919704004521" class="social-btn" title="Call"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg></a>
+        <a href="https://www.google.com/maps/place/Swathi+Bakery/@17.1475427,78.2888934,17z" target="_blank" class="social-btn" title="Google Maps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col reveal d1"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Full Menu</a></li><li><a href="about.html">Our Story</a></li><li><a href="order.html">Order Online</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col reveal d2"><h4>Menu</h4><ul><li><a href="menu.html#cakes">Cakes</a></li><li><a href="menu.html#breads">Breads</a></li><li><a href="menu.html#pastries">Pastries</a></li><li><a href="menu.html#cookies">Cookies</a></li><li><a href="order.html">Custom Orders</a></li></ul></div>
+    <div class="footer-col reveal d3"><h4>Contact</h4>
+      <div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg><a href="tel:+919704004521">+91 97040 04521</a></div>
+      <div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/place/Swathi+Bakery/@17.1475427,78.2888934,17z" target="_blank">View on Google Maps →</a></div>
+      <div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sun: 7 AM – 9:30 PM</span></div>
+    </div>
+  </div>
+  <hr class="footer-hr"/>
+  <div class="footer-bottom"><span>© 2026 Swathi Bakers. All Rights Reserved.</span><span>Made with ♥ in Telangana</span></div>
+</footer>
+
+<a class="wa-float" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!" target="_blank" title="Order on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script src="js/nav.js"></script>
+<script>
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => { heroBg.style.transform = `scale(1.08) translateY(${scrollY * 0.22}px)`; }, { passive: true });
+const cv = document.getElementById('particles'), cx = cv.getContext('2d');
+function rsz() { cv.width = cv.offsetWidth; cv.height = cv.offsetHeight; } rsz(); window.addEventListener('resize', rsz);
+let pts = [];
+function mkPt() { return { x: Math.random()*cv.width, y: cv.height+10, r: Math.random()*2.5+0.8, sy: Math.random()*0.7+0.3, sx: (Math.random()-.5)*.4, o: Math.random()*.5+.2, c: Math.random()>.5?'#C9963A':'#F0D4A0' }; }
+(function anim() { cx.clearRect(0,0,cv.width,cv.height); if(pts.length<50&&Math.random()>.82) pts.push(mkPt()); pts=pts.filter(p=>p.y>-10); pts.forEach(p=>{ p.y-=p.sy; p.x+=p.sx; cx.save(); cx.globalAlpha=p.o; cx.fillStyle=p.c; cx.beginPath(); cx.arc(p.x,p.y,p.r,0,Math.PI*2); cx.fill(); cx.restore(); }); requestAnimationFrame(anim); })();
+document.querySelectorAll('.menu-img-card').forEach(c=>{ c.addEventListener('mousemove',e=>{ const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5; c.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-10px)`; }); c.addEventListener('mouseleave',()=>{ c.style.transform=''; }); });
+</script>
+</body>
+</html>

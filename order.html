@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Order — Swathi Bakers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html"><span>Swathi</span> Bakers</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="about.html">About</a></li>
+    <li><a href="order.html" class="active">Order</a></li><li><a href="contact.html">Contact</a></li>
+    <li><a class="nav-cta" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!" target="_blank">Order Now ↗</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-bottom"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow hero-anim-1">Same-Day Delivery Available · Telangana</div>
+    <h1 class="page-hero-title hero-anim-2">Place Your <em>Order</em></h1>
+    <p class="page-hero-sub hero-anim-3">Fill the form and we'll confirm your order on WhatsApp within 30 minutes.</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--warm-white)">
+  <div class="container order-grid">
+
+    <!-- ── FORM ── -->
+    <div class="order-form-card reveal">
+      <div style="margin-bottom:2rem">
+        <div class="section-eyebrow">Build Your Order</div>
+        <h2 class="section-title" style="font-size:1.8rem">What would you <em>like?</em></h2>
+      </div>
+
+      <!-- Delivery toggle -->
+      <label style="display:block;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.6rem">Fulfilment Type</label>
+      <div class="delivery-toggle">
+        <button type="button" class="delivery-opt active" onclick="setDelivery('pickup',this)">🏪 Store Pickup</button>
+        <button type="button" class="delivery-opt" onclick="setDelivery('delivery',this)">🚚 Home Delivery</button>
+      </div>
+
+      <div id="deliveryFields" style="display:none;margin-bottom:1.2rem">
+        <div class="form-group"><label>Delivery Address *</label><textarea class="form-input" rows="2" id="deliveryAddr" placeholder="Flat no., Street, Area, Telangana..."></textarea></div>
+      </div>
+
+      <!-- Quick item selector -->
+      <div class="form-group">
+        <label>Select Items (tap to select)</label>
+        <div class="quick-items">
+          <div class="quick-item" onclick="toggleItem(this,'Belgian Truffle Cake',3500)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=80&q=60" alt=""/><span>Belgian Truffle</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Strawberry Cloud Cake',3200)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=80&q=60" alt=""/><span>Strawberry Cloud</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Butter Croissants ×6',480)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=80&q=60" alt=""/><span>Croissants ×6</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Artisan Sourdough',220)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=60" alt=""/><span>Sourdough Loaf</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Choco Chip Cookies ×6',240)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=80&q=60" alt=""/><span>Cookies ×6</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Glazed Donuts ×6',320)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=80&q=60" alt=""/><span>Donuts ×6</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Red Velvet Cake',3000)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=80&q=60" alt=""/><span>Red Velvet</span></div>
+          <div class="quick-item" onclick="toggleItem(this,'Veg Puffs ×6',240)"><img class="quick-item-img" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=80&q=60" alt=""/><span>Veg Puffs ×6</span></div>
+        </div>
+      </div>
+
+      <!-- Custom cake toggle -->
+      <div style="margin-bottom:1.5rem">
+        <button type="button" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);cursor:pointer;padding:0" onclick="toggleCake()">
+          <span>🎂 Add Custom Cake?</span>
+          <span id="cakeIcon" style="font-size:1.3rem;transition:transform .3s;color:var(--gold)">+</span>
+        </button>
+        <div id="cakeSection" style="display:none;margin-top:1rem">
+          <div class="cake-customizer">
+            <h4>Cake Flavour</h4>
+            <div class="flavour-grid">
+              <button type="button" class="flavour-btn active" onclick="setFlavour(this,'Belgian Chocolate')">Belgian Choc</button>
+              <button type="button" class="flavour-btn" onclick="setFlavour(this,'Strawberry')">Strawberry</button>
+              <button type="button" class="flavour-btn" onclick="setFlavour(this,'Red Velvet')">Red Velvet</button>
+              <button type="button" class="flavour-btn" onclick="setFlavour(this,'Butterscotch')">Butterscotch</button>
+              <button type="button" class="flavour-btn" onclick="setFlavour(this,'Black Forest')">Black Forest</button>
+              <button type="button" class="flavour-btn" onclick="setFlavour(this,'Custom')">Custom →</button>
+            </div>
+            <h4 style="margin-top:1rem;margin-bottom:.6rem">Cake Size</h4>
+            <div class="size-grid">
+              <button type="button" class="size-btn" onclick="setSize(this,'500g',1800)">500g<br/><span style="color:var(--gold);font-weight:600">₹1,800</span></button>
+              <button type="button" class="size-btn active" onclick="setSize(this,'1 kg',3000)">1 kg<br/><span style="color:var(--gold);font-weight:600">₹3,000</span></button>
+              <button type="button" class="size-btn" onclick="setSize(this,'1.5 kg',4200)">1.5 kg<br/><span style="color:var(--gold);font-weight:600">₹4,200</span></button>
+              <button type="button" class="size-btn" onclick="setSize(this,'2 kg',5500)">2 kg<br/><span style="color:var(--gold);font-weight:600">₹5,500</span></button>
+            </div>
+            <div class="form-group" style="margin-top:1rem;margin-bottom:0">
+              <label>Message on Cake (optional)</label>
+              <input type="text" class="form-input" id="cakeMsg" placeholder="Happy Birthday Priya! ❤️" maxlength="40"/>
+            </div>
+            <div class="price-preview">
+              <div><div style="font-size:.78rem;color:var(--text-light)">Custom Cake Price</div><div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--espresso)" id="cakePriceDisplay">₹3,000</div></div>
+              <div style="font-size:.78rem;color:var(--text-light);text-align:right" id="cakeSizeLabel">1 kg · Belgian Chocolate<br/>48hr advance notice required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer details -->
+      <div style="border-top:1px solid var(--cream-deep);padding-top:1.5rem;margin-top:.5rem">
+        <div class="form-section-title">📋 Your Details</div>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" class="form-input" placeholder="Priya Sharma" id="custName"/></div>
+          <div class="form-group"><label>WhatsApp Number *</label><input type="tel" class="form-input" placeholder="+91 98765 43210" id="custPhone"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred Date *</label><input type="date" class="form-input" id="custDate"/></div>
+          <div class="form-group"><label>Preferred Time</label>
+            <select class="form-input" id="custTime">
+              <option>Morning (7–11 AM)</option>
+              <option>Afternoon (11 AM–3 PM)</option>
+              <option selected>Evening (3–8 PM)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Special Instructions</label><textarea class="form-input" rows="3" id="custNotes" placeholder="Allergies, special requests, or any notes for us..."></textarea></div>
+      </div>
+
+      <div class="info-tip">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Your order details will be sent directly to our team on WhatsApp. We'll confirm availability and total within 30 minutes.</span>
+      </div>
+
+      <!-- WhatsApp send — green btn always visible -->
+      <a class="wa-order-btn" id="sendOrderBtn" href="#" onclick="sendOrder(event)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Send Order via WhatsApp
+      </a>
+    </div>
+
+    <!-- ── SIDEBAR ── -->
+    <div class="order-summary">
+      <!-- Summary card -->
+      <div class="summary-card reveal-right">
+        <h3>🛒 Order Summary</h3>
+        <div id="summaryItems">
+          <p style="color:rgba(255,255,255,.3);font-size:.84rem;font-style:italic">No items selected yet. Choose from the form.</p>
+        </div>
+        <div class="summary-row total"><span>Estimated Total</span><span class="price" id="totalPrice">₹0</span></div>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.28);margin-top:.6rem;line-height:1.5">Final price confirmed on WhatsApp. Delivery charges extra. 50% advance for custom cakes.</p>
+      </div>
+
+      <!-- Why order -->
+      <div style="background:#fff;border-radius:20px;padding:1.8rem;box-shadow:0 2px 20px rgba(26,15,7,.06);margin-top:1.5rem" class="reveal-right d1">
+        <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:1.2rem">Why Order With Us?</h4>
+        <div style="display:flex;flex-direction:column;gap:.9rem">
+          <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="font-size:1.2rem;flex-shrink:0">✅</div><div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark)">Baked fresh on the day</div><div style="font-size:.78rem;color:var(--text-light)">Nothing ever more than 4 hours old</div></div></div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="font-size:1.2rem;flex-shrink:0">⚡</div><div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark)">30-min confirmation</div><div style="font-size:.78rem;color:var(--text-light)">We confirm every order quickly</div></div></div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="font-size:1.2rem;flex-shrink:0">🎂</div><div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark)">Custom designs</div><div style="font-size:.78rem;color:var(--text-light)">Send a photo — we'll recreate it</div></div></div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start"><div style="font-size:1.2rem;flex-shrink:0">🚚</div><div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark)">Same-day delivery</div><div style="font-size:.78rem;color:var(--text-light)">Across Telangana for orders before 12 PM</div></div></div>
+        </div>
+      </div>
+
+      <!-- Bulk order -->
+      <div style="background:linear-gradient(135deg,var(--espresso),var(--espresso-light));border-radius:20px;padding:1.8rem;margin-top:1.5rem" class="reveal-right d2">
+        <div style="font-size:1.6rem;margin-bottom:.6rem">🏢</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.5rem">Bulk &amp; Corporate Orders</h4>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:1rem">Planning a team event, wedding, or office celebration? Special pricing for bulk orders of 20+ items.</p>
+        <!-- gold on dark = always visible -->
+        <a href="https://web.whatsapp.com/send?phone=919704004521&text=Hi!%20I'm%20interested%20in%20a%20bulk%20order." target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;font-size:.85rem">Get a Bulk Quote</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-band">
+  <div style="position:relative;z-index:1;text-align:center" class="reveal">
+    <h2>Need Help Choosing?</h2>
+    <p>Chat with us on WhatsApp — we'll suggest the perfect items for your occasion and budget.</p>
+    <a href="https://web.whatsapp.com/send?phone=919704004521&text=Hi!%20I%20need%20help%20choosing%20items." target="_blank" class="btn btn-whatsapp">💬 Ask Us on WhatsApp</a>
+  </div>
+</div>
+
+<div class="marquee-strip"><div class="marquee-track">
+  <div class="marquee-item">Belgian Truffle<div class="marquee-dot"></div></div><div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div><div class="marquee-item">Strawberry Cloud<div class="marquee-dot"></div></div><div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div><div class="marquee-item">Custom Cakes<div class="marquee-dot"></div></div><div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div><div class="marquee-item">Belgian Truffle<div class="marquee-dot"></div></div><div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div><div class="marquee-item">Strawberry Cloud<div class="marquee-dot"></div></div><div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div><div class="marquee-item">Custom Cakes<div class="marquee-dot"></div></div><div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div>
+</div></div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="reveal"><span class="footer-logo"><span>Swathi</span> Bakers</span><p class="footer-tagline">Artisan warmth in every bite.<br/>Baked with love since 2018.</p></div>
+    <div class="footer-col reveal d1"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="about.html">About</a></li><li><a href="order.html">Order</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col reveal d2"><h4>Hours</h4><ul><li><a href="#">Mon–Fri: 7AM–9:30PM</a></li><li><a href="#">Sat: 7AM–10PM</a></li><li><a href="#">Sun: 8AM–8PM</a></li></ul></div>
+    <div class="footer-col reveal d3"><h4>Contact</h4><div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg><a href="tel:+919704004521">+91 97040 04521</a></div><div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/place/Swathi+Bakery/@17.1475427,78.2888934,17z" target="_blank">Telangana, India</a></div></div>
+  </div>
+  <hr class="footer-hr"/><div class="footer-bottom"><span>© 2026 Swathi Bakers.</span><span>Made with ♥</span></div>
+</footer>
+
+<a class="wa-float" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script src="js/nav.js"></script>
+<script>
+let selectedItems = {};
+let deliveryType = 'pickup';
+let cakeOpen = false;
+let cakeFlavour = 'Belgian Chocolate';
+let cakeSize = '1 kg';
+let cakePrice = 3000;
+
+function setDelivery(type, btn) {
+  deliveryType = type;
+  document.querySelectorAll('.delivery-opt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('deliveryFields').style.display = type === 'delivery' ? 'block' : 'none';
+}
+
+function toggleItem(el, name, price) {
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) selectedItems[name] = price;
+  else delete selectedItems[name];
+  updateSummary();
+}
+
+function toggleCake() {
+  cakeOpen = !cakeOpen;
+  document.getElementById('cakeSection').style.display = cakeOpen ? 'block' : 'none';
+  document.getElementById('cakeIcon').style.transform = cakeOpen ? 'rotate(45deg)' : '';
+  updateSummary();
+}
+
+function setFlavour(btn, flavour) {
+  document.querySelectorAll('.flavour-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  cakeFlavour = flavour;
+  document.getElementById('cakeSizeLabel').innerHTML = cakeSize + ' · ' + cakeFlavour + '<br/>48hr advance notice required';
+}
+
+function setSize(btn, size, price) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  cakeSize = size;
+  cakePrice = price;
+  document.getElementById('cakePriceDisplay').textContent = '₹' + price.toLocaleString('en-IN');
+  document.getElementById('cakeSizeLabel').innerHTML = size + ' · ' + cakeFlavour + '<br/>48hr advance notice required';
+  updateSummary();
+}
+
+function updateSummary() {
+  const container = document.getElementById('summaryItems');
+  let html = '';
+  let total = 0;
+  for (const [name, price] of Object.entries(selectedItems)) {
+    html += `<div class="summary-row"><span>${name}</span><span>₹${price.toLocaleString('en-IN')}</span></div>`;
+    total += price;
+  }
+  if (cakeOpen) {
+    html += `<div class="summary-row"><span>Custom Cake (${cakeSize} · ${cakeFlavour})</span><span>₹${cakePrice.toLocaleString('en-IN')}</span></div>`;
+    total += cakePrice;
+  }
+  if (!html) html = '<p style="color:rgba(255,255,255,.3);font-size:.84rem;font-style:italic">No items selected yet.</p>';
+  container.innerHTML = html;
+  document.getElementById('totalPrice').textContent = '₹' + total.toLocaleString('en-IN');
+}
+
+function sendOrder(e) {
+  e.preventDefault();
+  const name = document.getElementById('custName').value.trim() || 'Customer';
+  const phone = document.getElementById('custPhone').value.trim() || 'Not provided';
+  const date = document.getElementById('custDate').value || 'ASAP';
+  const time = document.getElementById('custTime').value;
+  const notes = document.getElementById('custNotes').value.trim();
+  const addr = deliveryType === 'delivery' ? (document.getElementById('deliveryAddr').value.trim() || 'To be confirmed') : 'Store Pickup';
+  let itemList = Object.keys(selectedItems).join(', ');
+  if (cakeOpen) itemList += (itemList ? ', ' : '') + `Custom Cake (${cakeFlavour}, ${cakeSize})`;
+  if (!itemList) itemList = 'Please advise on available items';
+  const msg = `Hello Swathi Bakers! 🎂\n\n*Order Details:*\n• Items: ${itemList}\n• Type: ${deliveryType === 'pickup' ? 'Store Pickup' : 'Home Delivery'}\n• Address: ${addr}\n• Date: ${date}\n• Time: ${time}\n\n*My Details:*\n• Name: ${name}\n• Phone: ${phone}${notes ? '\n\n*Notes:* ' + notes : ''}\n\nPlease confirm availability and total price. Thank you! 🙏`;
+  window.open('https://web.whatsapp.com/send?phone=919704004521&text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+</body>
+</html>

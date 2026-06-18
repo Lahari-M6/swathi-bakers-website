@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Menu — Swathi Bakers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html"><span>Swathi</span> Bakers</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="nav-cta" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!" target="_blank">Order Now ↗</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-bottom"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow hero-anim-1">Handcrafted with Love · Baked Daily</div>
+    <h1 class="page-hero-title hero-anim-2">Our <em>Full Menu</em></h1>
+    <p class="page-hero-sub hero-anim-3">Order via WhatsApp for same-day pickup or delivery across Vijayawada.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top:2rem;background:var(--warm-white)">
+<div class="container">
+
+<!-- CATEGORY NAV -->
+<div class="category-nav">
+  <button class="cat-btn active" onclick="scrollToId('cakes',this)">🎂 Cakes</button>
+  <button class="cat-btn" onclick="scrollToId('pastries',this)">🥐 Pastries</button>
+  <button class="cat-btn" onclick="scrollToId('breads',this)">🍞 Breads</button>
+  <button class="cat-btn" onclick="scrollToId('cookies',this)">🍪 Cookies</button>
+  <button class="cat-btn" onclick="scrollToId('donuts',this)">🍩 Donuts</button>
+  <button class="cat-btn" onclick="scrollToId('savory',this)">🫓 Savoury</button>
+  <button class="cat-btn" onclick="scrollToId('seasonal',this)">🌟 Seasonal</button>
+</div>
+
+<!-- CUSTOM CAKE BANNER -->
+<div class="custom-banner reveal">
+  <div>
+    <h3>Custom Celebration Cakes 🎉</h3>
+    <p>Birthdays, weddings, anniversaries, corporate events — any cake, any design. WhatsApp us a photo for a quote. Minimum 48 hours notice required.</p>
+  </div>
+  <div class="custom-banner-btns">
+    <a href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!%20I%27d%20like%20a%20custom%20cake%20quote." target="_blank" class="btn btn-whatsapp">💬 WhatsApp Us</a>
+    <a href="order.html" class="btn btn-gold">Fill Order Form</a>
+  </div>
+</div>
+
+<!-- CAKES -->
+<div class="cat-section" id="cakes">
+  <div class="cat-section-header reveal"><span>🎂</span><h2>Cakes</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><span class="item-badge">Bestseller</span><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" alt="Belgian Truffle"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Belgian Truffle Dream</div><div class="item-desc">Rich dark chocolate sponge with Belgian ganache and chocolate curls. Available in 500g, 1kg, 2kg.</div><div class="item-footer"><div class="item-price">₹450/slice · ₹3,500</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Belgian%20Truffle%20Dream" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><span class="item-badge">Chef's Pick</span><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&q=80" alt="Strawberry Cloud"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Strawberry Cloud Cake</div><div class="item-desc">Light vanilla chiffon with fresh strawberry compote and whipped cream layers. Seasonal berries on top.</div><div class="item-footer"><div class="item-price">₹400/slice · ₹3,200</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Strawberry%20Cloud%20Cake" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&q=80" alt="Red Velvet"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Red Velvet Royale</div><div class="item-desc">Classic red velvet with cream cheese frosting, velvety crumb and stunning deep crimson layers.</div><div class="item-footer"><div class="item-price">₹380/slice · ₹3,000</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Red%20Velvet%20Royale" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d1"><div class="item-img"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500&q=80" alt="Black Forest"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Black Forest Gâteau</div><div class="item-desc">Chocolate sponge, cherries, clouds of whipped cream. A timeless classic done right.</div><div class="item-footer"><div class="item-price">₹420/slice · ₹3,300</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Black%20Forest" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=500&q=80" alt="Butterscotch"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Butterscotch Bliss</div><div class="item-desc">Moist butterscotch sponge with caramel buttercream and crunchy praline topping. A crowd favourite.</div><div class="item-footer"><div class="item-price">₹350/slice · ₹2,800</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Butterscotch%20Bliss" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOah41PabxdU4Vb7bkJtFiLZB23G9mPHl0HHzKOemPGg&s" alt="Mango Mousse Cake"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Mango Delight (Seasonal)</div><div class="item-desc">Fresh Alphonso mango pulp folded into creamy mousse on a buttery digestive base. Summer special.</div><div class="item-footer"><div class="item-price">₹390/slice · ₹3,100</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Mango%20Delight" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+<!-- PASTRIES -->
+<div class="cat-section" id="pastries">
+  <div class="cat-section-header reveal"><span>🥐</span><h2>Pastries &amp; Croissants</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><span class="item-badge">Daily Fresh</span><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&q=80" alt="Croissant"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Classic Butter Croissant</div><div class="item-desc">French-style all-butter croissant, 27 layers of laminated dough. Perfectly flaky outside, airy inside.</div><div class="item-footer"><div class="item-price">₹80 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Butter%20Croissants" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1568471173242-461f0a730452?w=500&q=80" alt="Choc Croissant"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Chocolate Croissant</div><div class="item-desc">Two dark chocolate batons nestled in buttery laminated pastry. Crispy, gooey, irresistible.</div><div class="item-footer"><div class="item-price">₹100 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Chocolate%20Croissant" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80" alt="Danish"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Fruit Danish</div><div class="item-desc">Cream cheese custard and seasonal fruits on laminated pastry base. Glazed and beautiful.</div><div class="item-footer"><div class="item-price">₹110 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Fruit%20Danish" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d1"><div class="item-img"><img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=500&q=80" alt="Veg Puff"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Veg Puff</div><div class="item-desc">Spiced potato and peas in golden puff pastry. Vijayawada's favourite tea snack.</div><div class="item-footer"><div class="item-price">₹40 each · ₹220/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Veg%20Puffs" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://horizon.com/wp-content/uploads/recipe-cin-roll-hero.jpg" alt="Cinnamon Roll"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Cinnamon Roll</div><div class="item-desc">Soft pillowy rolls swirled with brown sugar and cinnamon, drizzled with warm cream cheese icing.</div><div class="item-footer"><div class="item-price">₹120 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Cinnamon%20Rolls" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80" alt="Eclair"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Chocolate Éclair</div><div class="item-desc">Choux pastry filled with vanilla pastry cream, dipped in shiny dark chocolate glaze.</div><div class="item-footer"><div class="item-price">₹90 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Chocolate%20Eclairs" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+<!-- BREADS -->
+<div class="cat-section" id="breads">
+  <div class="cat-section-header reveal"><span>🍞</span><h2>Artisan Breads</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><span class="item-badge">Signature</span><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80" alt="Sourdough"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Country Sourdough</div><div class="item-desc">72-hour cold ferment, open crumb, crackling crust. Made with our 5-year-old starter.</div><div class="item-footer"><div class="item-price">₹220 / loaf</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Sourdough" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=500&q=80" alt="Multigrain"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Multigrain Health Loaf</div><div class="item-desc">Seeds, oats, whole wheat and rye — dense, nutritious and earthy. Great for sandwiches.</div><div class="item-footer"><div class="item-price">₹180 / loaf</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Multigrain%20Loaf" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&q=80" alt="White Sandwich"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>White Sandwich Loaf</div><div class="item-desc">Soft milk bread, perfectly square, ideal for sandwiches and toast. Kids love it.</div><div class="item-footer"><div class="item-price">₹120 / loaf</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20White%20Sandwich%20Loaf" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d1"><div class="item-img"><img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&q=80" alt="Focaccia"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Garlic Herb Focaccia</div><div class="item-desc">Italian-style dimpled flatbread drenched in olive oil, garlic, rosemary and flaky sea salt.</div><div class="item-footer"><div class="item-price">₹160 / slab</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Garlic%20Focaccia" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=500&q=80" alt="Pav"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Ladi Pav (Dinner Rolls)</div><div class="item-desc">Soft pillowy Mumbai-style pav — perfect with bhaji, butter, or on its own.</div><div class="item-footer"><div class="item-price">₹60 / 6pcs · ₹110/12</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Ladi%20Pav" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=600&q=80" alt="Plum Cake"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Rum &amp; Raisin Plum Cake</div><div class="item-desc">Fruit-laden, rum-soaked celebration cake. Rich, moist and deeply spiced — year-round.</div><div class="item-footer"><div class="item-price">₹280 / 500g</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Plum%20Cake" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+<!-- COOKIES -->
+<div class="cat-section" id="cookies">
+  <div class="cat-section-header reveal"><span>🍪</span><h2>Cookies &amp; Biscuits</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80" alt="Choc Chip"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Chunky Choco Chip</div><div class="item-desc">Brown butter, dark chocolate chips, crispy edges, chewy centre. NYC-bakery style.</div><div class="item-footer"><div class="item-price">₹45 each · ₹240/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Choco%20Chip%20Cookies" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=500&q=80" alt="Almond"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Butter Almond Cookies</div><div class="item-desc">Melt-in-mouth shortbread-style with whole almonds pressed in. A classic Swathi special.</div><div class="item-footer"><div class="item-price">₹35 each · ₹190/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Almond%20Cookies" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=500&q=80" alt="Oatmeal"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Oat &amp; Raisin Cookies</div><div class="item-desc">Wholesome oats with plump raisins, cinnamon and a touch of honey. Guilt-free goodness.</div><div class="item-footer"><div class="item-price">₹35 each · ₹190/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Oat%20Cookies" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+<!-- DONUTS -->
+<div class="cat-section" id="donuts">
+  <div class="cat-section-header reveal"><span>🍩</span><h2>Donuts</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><span class="item-badge">New</span><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&q=80" alt="Glazed"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Classic Glazed</div><div class="item-desc">Light, airy yeast donut in a sheer vanilla glaze. Simple, perfect.</div><div class="item-footer"><div class="item-price">₹60 each · ₹320/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Glazed%20Donuts" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://share.google/cTy4QjhQ1YTan9TD8" alt="Choc Donut"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Chocolate Frosted</div><div class="item-desc">Rich chocolate glaze with rainbow sprinkles. The one everyone picks first.</div><div class="item-footer"><div class="item-price">₹70 each · ₹380/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Chocolate%20Donuts" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&q=80" alt="Jam Donut"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Strawberry Jam Filled</div><div class="item-desc">Pillowy soft donut filled with homemade strawberry jam, dusted with icing sugar.</div><div class="item-footer"><div class="item-price">₹75 each · ₹400/6</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Strawberry%20Donuts" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+<!-- SAVORY -->
+<div class="cat-section" id="savory">
+  <div class="cat-section-header reveal"><span>🫓</span><h2>Savoury Items</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?w=500&q=80" alt="Veg Puff"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Veg Puff</div><div class="item-desc">Spiced potato and peas in golden puff pastry. Best with tea.</div><div class="item-footer"><div class="item-price">₹40 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Veg%20Puffs" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=80" alt="Cheese Scone"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Cheese &amp; Herb Scones</div><div class="item-desc">Cheddar and chive baked scone, crumbly and rich. Perfect warm from the oven.</div><div class="item-footer"><div class="item-price">₹90 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Cheese%20Scones" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1603046891744-1f5c7c6e736c?w=500&q=80" alt="Masala Roll"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Masala Bread Roll</div><div class="item-desc">Soft roll filled with spiced potato masala. A Swathi Bakers classic — only 20 made daily.</div><div class="item-footer"><div class="item-price">₹50 each</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Masala%20Bread%20Rolls" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+<!-- SEASONAL -->
+<div class="cat-section" id="seasonal">
+  <div class="cat-section-header reveal"><span>🌟</span><h2>Seasonal &amp; Special</h2></div>
+  <div class="item-grid">
+    <div class="item-card reveal d1"><div class="item-img"><span class="item-badge">Limited</span><img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=500&q=80" alt="Plum Cake"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Christmas Plum Cake</div><div class="item-desc">Spirits-soaked fruit cake made from scratch. Pre-order required. Available Oct–Jan.</div><div class="item-footer"><div class="item-price">₹280/500g · ₹520/kg</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Plum%20Cake" target="_blank">Pre-Order</a></div></div></div>
+    <div class="item-card reveal d2"><div class="item-img"><img src="https://images.unsplash.com/photo-1546548970-71785318a17b?w=500&q=80" alt="Mango Mousse Cake"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Mango Mousse Cake</div><div class="item-desc">Alphonso mango mousse on a coconut sponge base. Summer only — May to July.</div><div class="item-footer"><div class="item-price">₹390/slice · ₹3,100</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Mango%20Mousse%20Cake" target="_blank">Order</a></div></div></div>
+    <div class="item-card reveal d3"><div class="item-img"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&q=80" alt="Valentine"/></div><div class="item-body"><div class="item-name"><span class="veg-dot"></span>Heart Valentine Cake</div><div class="item-desc">Custom designed red velvet or chocolate heart cake. Personalised message included.</div><div class="item-footer"><div class="item-price">From ₹1,200</div><a class="item-order" href="https://web.whatsapp.com/send?phone=919704004521&text=I'd%20like%20Valentine%20Cake" target="_blank">Order</a></div></div></div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div style="position:relative;z-index:1;text-align:center" class="reveal">
+    <h2>Can't Find What You're Looking For?</h2>
+    <p>We do fully custom orders — any flavour, any design, any size.</p>
+    <div class="cta-band-actions">
+      <a href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!%20I%20have%20a%20custom%20order." target="_blank" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
+      <a href="order.html" class="btn btn-gold">Order Form</a>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip"><div class="marquee-track">
+  <div class="marquee-item">Belgian Truffle<div class="marquee-dot"></div></div><div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div><div class="marquee-item">Strawberry Cloud<div class="marquee-dot"></div></div><div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div><div class="marquee-item">Custom Cakes<div class="marquee-dot"></div></div><div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div><div class="marquee-item">Belgian Truffle<div class="marquee-dot"></div></div><div class="marquee-item">Classic Croissant<div class="marquee-dot"></div></div><div class="marquee-item">Strawberry Cloud<div class="marquee-dot"></div></div><div class="marquee-item">Artisan Sourdough<div class="marquee-dot"></div></div><div class="marquee-item">Custom Cakes<div class="marquee-dot"></div></div><div class="marquee-item">Plum Cake<div class="marquee-dot"></div></div>
+</div></div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="reveal"><span class="footer-logo"><span>Swathi</span> Bakers</span><p class="footer-tagline">Artisan warmth in every bite.<br/>Baked with love since 2018.</p></div>
+    <div class="footer-col reveal d1"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="about.html">About</a></li><li><a href="order.html">Order</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col reveal d2"><h4>Categories</h4><ul><li><a href="#cakes">Cakes</a></li><li><a href="#pastries">Pastries</a></li><li><a href="#breads">Breads</a></li><li><a href="#cookies">Cookies</a></li><li><a href="#seasonal">Seasonal</a></li></ul></div>
+    <div class="footer-col reveal d3"><h4>Contact</h4><div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg><a href="tel:+919704004521">+91 97040 04521</a></div><div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2" style="flex-shrink:0;margin-top:3px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sun: 7AM–9:30PM</span></div></div>
+  </div>
+  <hr class="footer-hr"/><div class="footer-bottom"><span>© 2026 Swathi Bakers.</span><span>Made with ♥ in Telangana</span></div>
+</footer>
+<a class="wa-float" href="https://web.whatsapp.com/send?phone=919704004521&text=Hello!" target="_blank" title="Order on WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script src="js/nav.js"></script>
+<script>
+function scrollToId(id, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+document.querySelectorAll('.item-card').forEach(c => {
+  c.addEventListener('mousemove', e => { const r = c.getBoundingClientRect(), x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5; c.style.transform = `perspective(800px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-8px)`; });
+  c.addEventListener('mouseleave', () => { c.style.transform = ''; });
+});
+</script>
+</body>
+</html>
